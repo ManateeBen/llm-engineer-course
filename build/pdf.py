@@ -78,7 +78,7 @@ PRINT_CSS = """
 }
 
 /* --- 隐藏交互外壳 --- */
-#home, .unit-neighbors, #sidebar, #menu-toggle, .side-foot, .side-tools,
+#home, .unit-neighbors, .done-btn, .gate-actions, #sidebar, #menu-toggle, .side-foot, .side-tools,
 .viz-ctrl, .viz-ctrl-row, #progress-wrap, .progress-wrap,
 #search-input, #theme-btn, #clear-btn, #home-link-wrap,
 .no-print, .toast, #toast,
@@ -120,6 +120,7 @@ svg, table, pre, blockquote, .viz, .viz-cap, .katex-display {
 }
 h1, h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
 tr, thead { break-inside: avoid; }
+.ex-q, .gate-q { break-inside: avoid; }
 
 /* --- 页面起止 --- */
 .pdf-cover, .pdf-toc, .unit, .gate {
@@ -228,7 +229,20 @@ TAIL_SCRIPT = r"""
     } catch (e) {}
   }
   renderKatex();
-  window.addEventListener("load", renderKatex);
+  window.addEventListener("load", function () {
+    (window.__GATES__ || []).forEach(function (g) {
+      g.questions.forEach(function (q) {
+        var box = document.querySelector('.gate-q[data-q="' + g.stage + '-' + q.n + '"]');
+        if (box) {
+          box.classList.add('graded');
+          box.querySelector('.gq-verdict').textContent = '参考答案：' + q.answer;
+        }
+      });
+    });
+    var notices = document.querySelector('.license-notices');
+    if (notices) document.querySelector('#content').appendChild(notices);
+    renderKatex();
+  });
   setTimeout(renderKatex, 0);
 })();
 </script>

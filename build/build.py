@@ -310,6 +310,7 @@ def build(write=True):
     gates = []
     for g in sorted((CONTENT / "gates").glob("stage-*.md")):
         gates.append(parse_gate(g))
+    gates.sort(key=lambda gate: gate["stage"])
 
     katex_css, katex_js, autorender_js = katex_assets()
     app_js = (BUILD / "app.js").read_text(encoding="utf-8")
