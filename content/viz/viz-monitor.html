@@ -1,0 +1,11 @@
+<div class="viz" id="viz-monitor">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>训练监控面板：三层信号金字塔与故障定位</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="三层监控面板（硬件/动态/能力），点击任一指标格切换告警状态，演示如何定位故障域">
+    <g id="mo-static"></g>
+    <g id="mo-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <span id="mo-hint" class="viz-hint">点击任一指标格切换「正常/告警」，看故障如何定位到层级</span>
+  </div>
+  <div class="viz-cap">监控三层：① 硬件层（GPU 利用率/显存/带宽/掉卡）② 训练动态层（loss/grad norm/吞吐/序列长度分布）③ 能力层（下游探针）。不同故障在不同层先暴露——某层变红即可定位故障域。grad norm 突涨先于 spike；探针为零拦截静默不收敛。</div>
+</div>

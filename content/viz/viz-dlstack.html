@@ -1,0 +1,8 @@
+<div class="viz" id="viz-dlstack">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>国产训练栈两条路线：原生栈 vs 兼容栈</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="对比原生栈与兼容栈的分层结构，标注自动并行各自发生的层">
+    <g id="ds-static"></g>
+    <g id="ds-anim"></g>
+  </svg>
+  <div class="viz-cap">左：原生栈（MindSpore/PaddlePaddle 类）——自动并行发生在 IR 变换层（编译期插入通信）；右：兼容栈（PyTorch + torch_npu 类）——并行发生在分布式模块层（运行时分片）。两条路线在算子层汇合到同一硬件栈（CANN/算子库）。8-1 练习 1 的三层管线在此落地：抽象越高，全局优化空间越大；越靠生态，迁移成本越低。</div>
+</div>

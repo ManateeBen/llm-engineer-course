@@ -1,0 +1,16 @@
+<div class="viz" id="viz-edge">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>端边云部署：三层约束账与跨设备切分决策</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="展示端边云三层的功耗、带宽与延迟约束，以及级联、投机分层、会话迁移三种跨设备切法的成本对比">
+    <g id="ed-static"></g>
+    <g id="ed-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>切分策略<span id="ed-s-val">级联路由</span>
+      <input type="range" id="ed-s" min="0" max="2" value="0" step="1">
+    </label>
+    <label>广域 RTT<span id="ed-r-val">80 ms</span>
+      <input type="range" id="ed-r" min="0" max="3" value="1" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">上：端/边/云三层——功耗、内存带宽与延迟语义逐级跃迁，端侧的墙是"功耗×LPDDR"，云端的墙是"吞吐×SLO"（11-5 §1）。下：三种跨设备切法的期望 token/s 随 RTT 变化——逐 token 上云被 1/RTT 封顶，投机式分层把 RTT 摊薄 k·α 倍，级联路由的吞吐取决于端侧模型本身（11-5 §4~§5）。</div>
+</div>

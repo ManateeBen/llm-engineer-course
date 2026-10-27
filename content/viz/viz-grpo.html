@@ -1,0 +1,16 @@
+<div class="viz" id="viz-grpo">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>GRPO 组内相对优势：同一题采 G 个回答，组内均值当基线、std 归一化当尺度</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="展示同一提示下八个采样回答的奖励柱状图与归一化后的组内优势，可拖动某个回答的奖励">
+    <g id="gp-static"></g>
+    <g id="gp-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>选中第几个回答<span id="gp-i-val">#1</span>
+      <input type="range" id="gp-i" min="0" max="7" value="0" step="1">
+    </label>
+    <label>它的奖励 r<span id="gp-r-val">0.0</span>
+      <input type="range" id="gp-r" min="0" max="1" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">上排：8 个回答的原始奖励（0/1 可验证判定）。下排：Â_i=(r_i−mean)/std——绿色=正优势（比同组平均好，被 PPO clip 推高）、红色=负优势（被压低）。把任意一个回答的奖励从 0 改成 1：它的优势转正，同时其余 7 个的优势被均值抬高而全部微降——**这就是"没有 critic 的基线"：每个回答的梯度由同组其他回答决定**。全对组/全错组所有 Â=0，无梯度（DAPO 的 dynamic sampling 过滤它们）。</div>
+</div>

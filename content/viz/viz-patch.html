@@ -1,0 +1,16 @@
+<div class="viz" id="viz-patch">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>图像 token 化：patch 化流程与三条路线对比</div>
+  <svg viewBox="0 0 640 360" role="img" aria-label="展示图像 patch 化流程和三种 token 化路线对比">
+    <g id="patch-static"></g>
+    <g id="patch-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>图像边长<span id="patch-res-val">336 px</span>
+      <input type="range" id="patch-res" min="0" max="3" value="1" step="1">
+    </label>
+    <label>patch 大小 P<span id="patch-p-val">14</span>
+      <input type="range" id="patch-p" min="0" max="2" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">左：336×336 图像切成 14×14 patch ⇒ 24×24=576 个视觉 token，每 token 经线性投影成 d 维向量进 Transformer。右：三条 token 化路线——patch 化（连续向量直接喂）、码本量化（离散整数进词表，统一自回归生成的必要条件）、连续投影（CLIP 特征 + 投影器，VLM 主流）。拖动滑块看 token 数与注意力成本的量级：分辨率翻倍 ⇒ token ×4、注意力 FLOPs ×16。</div>
+</div>

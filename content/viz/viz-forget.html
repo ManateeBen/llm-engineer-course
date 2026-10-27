@@ -1,0 +1,13 @@
+<div class="viz" id="viz-forget">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>持续预训练：领域 loss 下降 vs 通用能力遗忘曲线</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="调节 replay 通用数据比例，观察领域 loss 与通用分数两条曲线随 CPT 步数的演化">
+    <g id="fg-static"></g>
+    <g id="fg-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>通用 replay 比例 <span id="fg-rep-val">20%</span>
+      <input type="range" id="fg-rep" min="0" max="50" value="20" step="5">
+    </label>
+  </div>
+  <div class="viz-cap">横轴 CPT 步数、左纵轴领域 loss（绿，下降=学到领域）、右纵轴通用 benchmark 分数（橙，下降=遗忘）。replay 0% 时通用分数自由落体——这就是灾难性遗忘；混 20% 通用数据即可把遗忘曲线压平。领域 loss 与通用分数的「帕累托前沿」是理想配方。</div>
+</div>

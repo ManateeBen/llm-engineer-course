@@ -1,0 +1,7 @@
+<div class="viz" id="viz-perplexity">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>困惑度 vs 下游任务：两把不同的尺子（示意数据）</div>
+  <svg viewBox="0 0 640 340" role="img" aria-label="困惑度与准确率对比图">
+    <g id="viz-ppl-static"></g>
+  </svg>
+  <div class="viz-cap">模型 A 通用预训练充分、测试集同分布，PPL 更低；模型 B 做过监督微调（SFT），概率质量被摊到多种回答格式上，PPL 反而高，但问答任务远胜。PPL 度量"分布估得准不准"，任务指标度量"行为对不对"——跨模型比 PPL 还需同 tokenizer、同口径（见 7-0）。</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="viz" id="viz-activations">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>激活函数曲线：ReLU / GELU / SiLU（拖动滑杆对比）</div>
+  <svg viewBox="0 0 640 340" role="img" aria-label="激活函数曲线">
+    <g id="viz-act-grid"></g>
+    <g id="viz-act-curves"></g>
+    <g id="viz-act-cursor"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>x = <input type="range" id="viz-act-x" min="-4" max="4" step="0.05" value="1.5"> <b id="viz-act-xval">1.50</b></label>
+    <span id="viz-act-readout" style="font-family:var(--mono)"></span>
+  </div>
+  <div class="viz-cap">负半轴：ReLU 直接归零，GELU/SiLU 给小负值"留一口门"；正半轴：GELU/SiLU 起始斜率大于 1，后趋近 1。曲线形状差异会进入阶段 2 的方差分析。</div>
+</div>

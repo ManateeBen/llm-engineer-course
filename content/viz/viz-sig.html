@@ -1,0 +1,19 @@
+<div class="viz" id="viz-sig">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>统计显著性：误差棒决定"A 比 B 高 2 点"能不能上线</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="交互式演示不同题量下模型差值的置信区间，可调题量、效应量与一致率">
+    <g id="sig-static"></g>
+    <g id="sig-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>题量 n<span id="sig-n-val">200</span>
+      <input type="range" id="sig-n" min="0" max="4" value="1" step="1">
+    </label>
+    <label>观测差值 Δ<span id="sig-d-val">2.0 点</span>
+      <input type="range" id="sig-d" min="0" max="8" value="4" step="1">
+    </label>
+    <label>两模型一致率<span id="sig-a-val">90%</span>
+      <input type="range" id="sig-a" min="0" max="3" value="2" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">按单题配对差值D∈{−1,0,1}估算：Var(D)=1−一致率−差值²。固定题量和可行差值时，一致率越高，差值标准误越小。图为正态近似，少量不一致题应用精确检验；区间不是上线决定。</div>
+</div>

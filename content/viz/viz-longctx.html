@@ -1,0 +1,12 @@
+<div class="viz" id="viz-longctx">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>长上下文评测：大海捞针的 U 型陷阱</div>
+  <svg viewBox="0 0 640 450" role="img" aria-label="NIAH 位置-准确率曲线与 RULER 有效上下文对比">
+    <g id="vlc-static"></g>
+    <g id="vlc-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>宣称上下文 = <input type="range" id="vlc-ctx" min="3.6" max="5.5" step="0.05" value="4.51"> <b id="vlc-cval">32k</b></label>
+    <button type="button" id="vlc-play">▶ 扫描针的位置</button>
+  </div>
+  <div class="viz-cap">左图是 Kamradt 2023 式的大海捞针测试：横轴是"针"埋在上下文的位置，纵轴是检索准确率。营销曲线（虚线）一路平坦；真实模型（实线）呈 U 型——开头结尾高、中间塌陷，这就是"迷失在中间"：中部位置既无近因优势也无首因优势。右图是 RULER 的视角：同一个宣称 32k 的模型，在简单检索上 32k 全过，但多跳追踪、聚合、长文 QA 的真实有效上下文只有 4k~8k——宣称值与有效值之间有一道深渊。拖动"宣称上下文"看右侧各任务有效长度如何按比例崩；播放按钮让针的位置从左扫到右，读中间塌陷区的数字。</div>
+</div>

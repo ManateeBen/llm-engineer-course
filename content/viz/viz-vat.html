@@ -1,0 +1,7 @@
+<div class="viz" id="viz-vat">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>视频/音频 token 化：三重困境、RVQ 管线与延迟预算</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="展示视频 token 压缩策略、音频 RVQ 量化管线和语音对话延迟预算">
+    <g id="vat-static"></g>
+  </svg>
+  <div class="viz-cap">视频三重困境及对策：时序冗余 ⇒ 1~2 fps 帧采样；空间冗余 ⇒ 关键帧 + 差分 ROI；长度爆炸 ⇒ 分层 token 化（粗索引定位 + 细片段解码，Agent 思想的重演）。音频：波形 → 卷积下采样 75 Hz → RVQ 残差量化（n_q 级 × B bit ⇒ 24 kbps）→ 离散 token 流；RVQ 把指数级码本拆成逐级精化。语音对话五段延迟：VAD 200ms + 编码 50ms + TTFT 300~800ms + vocoder 100ms ⇒ <1.5s 目标；barge-in 清空播放队列 = 6-6 异步 RL 的抢占思想。</div>
+</div>

@@ -1,0 +1,7 @@
+<div class="viz" id="viz-contam">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>数据污染：三武器检测与四阶段反污染流水线</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="展示污染检测三种武器与四阶段反污染流水线">
+    <g id="contam-static"></g>
+  </svg>
+  <div class="viz-cap">污染是剂量问题：s_obs = s_true + p·Δ——p=1% 时虚高可忽略，p=8%、Δ=40 点 ⇒ 虚高 3.2 点，足以颠倒排名。三武器：① Min-K% Prob 白盒成员推断（见过的话连低概率 token 都偏高，WikiMIA AUC 0.7+）；② 时间旅行法构造免疫集（题目晚于训练截止时间 ⇒ 物理上不可能见过，唯一零污染保证）；③ 黑盒可交换性置换检验（拿不到 logits 时的路径）。工程反污染：建题记元数据 → 入库 13-gram 扫描 → 训练中 blocklist 名单制 → 出榜双轨审计。</div>
+</div>

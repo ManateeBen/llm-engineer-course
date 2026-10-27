@@ -1,0 +1,16 @@
+<div class="viz" id="viz-spec">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>投机解码：草稿长度不是越长越好</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="调节接受率与草稿相对成本，观察加速比随草稿长度变化的单峰曲线与最优点">
+    <g id="spc-static"></g>
+    <g id="spc-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>接受率 α（草稿与目标的一致度）<span id="spc-a-val">0.70</span>
+      <input type="range" id="spc-a" min="50" max="95" value="70" step="1">
+    </label>
+    <label>草稿相对成本 c<span id="spc-c-val">0.10</span>
+      <input type="range" id="spc-c" min="2" max="50" value="10" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">加速比 S(γ)=（期望产出 token 数）/（迭代成本）。分子是等比级数 (1−α^(γ+1))/(1−α)，随 γ 饱和在 1/(1−α)；分母 γc+1 线性增长。两者相除必然是单峰——γ 超过最优点后，多猜的草稿只是纯浪费。把 c 调小（用近乎免费的草稿，如 n-gram 或自草稿），曲线整体抬高且最优点右移；把 α 调低，天花板 1/(1−α) 直接塌下来。DeepSeek 的 DSpark 默认最多猜 5 个，正对应 α≈0.7、c≈0.1 附近的最优 γ*≈4~5。</div>
+</div>

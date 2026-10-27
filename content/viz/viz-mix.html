@@ -1,0 +1,16 @@
+<div class="viz" id="viz-mix">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>数据配比：按边际收益分馒头</div>
+  <svg viewBox="0 0 640 470" role="img" aria-label="数据配比堆叠条、各域 loss 随权重变化曲线与最优配比搜索">
+    <g id="mx-static"></g>
+    <g id="mx-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>网页 <input type="range" id="mx-w0" min="0" max="80" step="5" value="60"> <b id="mx-v0">60%</b></label>
+    <label>书籍 <input type="range" id="mx-w1" min="0" max="80" step="5" value="15"> <b id="mx-v1">15%</b></label>
+    <label>代码 <input type="range" id="mx-w2" min="0" max="80" step="5" value="15"> <b id="mx-v2">15%</b></label>
+    <label>论文 <input type="range" id="mx-w3" min="0" max="80" step="5" value="10"> <b id="mx-v3">10%</b></label>
+    <button type="button" id="mx-opt">🔍 搜索最优配比</button>
+    <button type="button" id="mx-reset">↺ 重置</button>
+  </div>
+  <div class="viz-cap">总预算固定 1T token。拖动四个域的权重滑块，看堆叠条与预测总 loss 实时变化——每个域的 loss 按域级幂律 \(L_i(N_i)=L_i^\infty+a_iN_i^{-b_i}\) 随分到的 token 数下降，总 loss 是加权和。点"搜索最优配比"即在小模型代理上网格搜索（4-1 的混合定律思路）：最优解从来不是"谁多听谁的"，而是各域边际下降相等处。参数为教学演示值。</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="viz" id="viz-kernel">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>Roofline：你的算子卡在带宽上还是算力上</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="roofline 模型，调节矩阵乘法的 batch 维度可看到算术强度沿带宽斜坡上升并在越过临界点后撞上算力平台">
+    <g id="ker-static"></g>
+    <g id="ker-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>GEMM 的 M（batch token 数）<span id="ker-m-val">1</span>
+      <input type="range" id="ker-m" min="0" max="7" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">横轴算术强度 I（FLOPs/Byte，对数），纵轴可达性能（FLOP/s，对数）。斜线是带宽上限 I·B_max，水平线是算力峰值 P_max，交点即临界强度 I*=P_max/B_max≈275。拖动滑杆改变 GEMM 的 batch 维度 M（K=N=4096 固定）：M=1 时 I≈1，深陷带宽受限区；M 增大后沿斜线爬升，越过 I* 后撞上算力平台——再优化算子也无用，只能改形状。对照 8-1 §1 的偏导：∂I/∂M&gt;0 恒成立。</div>
+</div>

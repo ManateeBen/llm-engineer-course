@@ -1,0 +1,7 @@
+<div class="viz" id="viz-compliance">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>合规即 CI：发布前每一道卡都有自动化 owner</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="展示从语料采集到线上监控的合规流水线，每个门禁标注检查项与失败动作">
+    <g id="compliance-static"></g>
+  </svg>
+  <div class="viz-cap">流水线：语料 → 训练 → 对齐 → 评估 → 备案 → 发布 → 监控。每道门的检查项都是已有工程产物的复用：安全评估复用 6-5 的 ASR/过度拒绝 harness，语料说明来自入库 CI 的 license/PII 扫描，模型卡由训练流水线自动生成。**核心原则：备案材料必须是 CI 的副产物，而不是并行维护的第二数据源——两处维护必漂移。** 硬阻断（合规红线）与告警（质量类可灰度）分级授权，所有例外走人工审批并留痕。</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="viz" id="viz-matmul">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>矩阵乘法 = 并行加权求和（播放动画）</div>
+  <svg viewBox="0 0 640 300" role="img" aria-label="矩阵乘法动画">
+    <g id="viz-mm-static"></g>
+    <g id="viz-mm-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <button type="button" id="viz-mm-play">▶ 播放</button>
+    <button type="button" id="viz-mm-reset">重置</button>
+    <span id="viz-mm-status"></span>
+  </div>
+  <div class="viz-cap">W 是 2×3，x 是 3×1。每个输出格子 = W 的一行与 x 做一次加权求和（行 · 列点积）。高亮的三个乘积项依次点亮，累加进输出格。</div>
+</div>

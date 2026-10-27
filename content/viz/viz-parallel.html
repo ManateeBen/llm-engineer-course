@@ -1,0 +1,22 @@
+<div class="viz" id="viz-parallel">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>4D 并行配置器：64 张卡的切法与代价</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="调节张量并行、流水线并行与 ZeRO 档位，观察每卡显存构成与流水线气泡的变化">
+    <g id="pa-static"></g>
+    <g id="pa-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>TP（域内）<span id="pa-tp-val">8</span>
+      <input type="range" id="pa-tp" min="0" max="3" value="3" step="1">
+    </label>
+    <label>PP<span id="pa-pp-val">2</span>
+      <input type="range" id="pa-pp" min="0" max="3" value="1" step="1">
+    </label>
+    <label>ZeRO 档<span id="pa-zr-val">1</span>
+      <input type="range" id="pa-zr" min="0" max="3" value="1" step="1">
+    </label>
+    <label>micro-batch m<span id="pa-m-val">32</span>
+      <input type="range" id="pa-m" min="0" max="4" value="2" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">固定 64 卡、70B 模型（静态 16Ψ=1120 GB）。上：每卡显存构成（静态按 TP/PP/ZeRO 分片，激活 34sbhL 按 TP 分摊，红色虚线为 80 GB 卡的可用线）；下：PP 气泡率 (p-1)/(m+p-1)。拖动 TP 从 8 降到 1：静态显存爆炸性上涨、冒出红线（OOM）；提高 m 可稀释气泡但激活同步上涨——8-2 练习 5 的联立方程在这张图里可视化。</div>
+</div>

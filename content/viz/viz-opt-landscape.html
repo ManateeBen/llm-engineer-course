@@ -1,0 +1,15 @@
+<div class="viz" id="viz-opt-landscape">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>同一片山谷，三种优化器：SGD / 动量 / Adam</div>
+  <svg viewBox="0 0 640 360" role="img" aria-label="损失地形与优化器轨迹">
+    <g id="viz-opt-static"></g>
+    <g id="viz-opt-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <button type="button" id="viz-opt-sgd">SGD（η=0.35）</button>
+    <button type="button" id="viz-opt-mom">SGD+动量</button>
+    <button type="button" id="viz-opt-adam">Adam</button>
+    <button type="button" id="viz-opt-reset">重置</button>
+    <span id="viz-opt-status"></span>
+  </div>
+  <div class="viz-cap">损失 f(x,y)=0.05x²+y²：沿 x 平缓、沿 y 陡峭（条件数 20）。SGD 在 y 方向来回撞墙、沿 x 龟速；动量把对冲的震荡抵消、沿谷底加速；Adam 用二阶矩给两个方向各自配步长，斜插向谷底。观察三种轨迹的形状差异。</div>
+</div>

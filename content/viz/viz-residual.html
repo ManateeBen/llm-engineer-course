@@ -1,0 +1,13 @@
+<div class="viz" id="viz-residual">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>残差连接：恒等旁路如何救回深网梯度</div>
+  <svg viewBox="0 0 640 360" role="img" aria-label="残差连接对逐层梯度的影响对比">
+    <g id="viz-residual-static"></g>
+    <g id="viz-residual-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>层数 L = <input type="range" id="viz-residual-layers" min="2" max="60" step="1" value="24"> <b id="viz-residual-lval">24</b></label>
+    <label>每层收缩因子 γ = <input type="range" id="viz-residual-gamma" min="0.5" max="1.2" step="0.01" value="0.85"> <b id="viz-residual-gval">0.85</b></label>
+    <button type="button" id="viz-residual-play">▶ 逐层揭示</button>
+  </div>
+  <div class="viz-cap">纵轴为梯度到达该层时的相对大小（对数刻度）。无残差时逐层连乘：γ<sup>L</sup>，指数衰减——60 层、γ=0.85 时首层梯度约为 6×10⁻⁵，几乎学不动；有残差时每层雅可比为 I+γ·∂F/∂x，恒等项保证梯度至少以 I 的乘积（≈1）回传，深层不再"挨饿"。</div>
+</div>

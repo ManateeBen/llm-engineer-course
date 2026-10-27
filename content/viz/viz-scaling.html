@@ -1,0 +1,11 @@
+<div class="viz" id="viz-scaling">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>缩放律：给定算力预算，参数量与数据量的最优分配</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="缩放律曲线与算力预算滑杆交互图">
+    <g id="viz-scaling-static"></g>
+    <g id="viz-scaling-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>算力预算 C = <input type="range" id="viz-scaling-c" min="18" max="25" step="0.05" value="21"> <b id="viz-scaling-cval">10²¹ FLOPs</b></label>
+  </div>
+  <div class="viz-cap">按 Chinchilla 参数化缩放律 L(N,D)=1.69+406.4/N⁰·³⁴+410.7/D⁰·²⁸ 与 C≈6ND，数值求解每档算力下的最优 N（蓝实线）与 D（红实线）。绿虚线是社区取整规则「每参数约 20 token」——原始拟合的配比其实随算力缓慢爬升（10¹⁸ 时约 26，10²⁵ 时约 123），指数 0.45/0.55 四舍五入成 0.5/0.5 才有「恒定 20:1」的传说。灰点为实测配置：Chinchilla（70B/1.4T）紧贴最优线，Gopher（280B/300B）参数过剩近 10 倍。真正要记住的是——山谷平得超乎直觉：配比差几倍只损失百分之几 nat，Gopher 式的参数过剩才付出约 0.06 nats 的可见代价。</div>
+</div>

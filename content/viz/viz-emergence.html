@@ -1,0 +1,12 @@
+<div class="viz" id="viz-emergence">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>涌现是指标现象还是真实相变：pᵏ 如何制造视觉阶跃</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="涌现曲线：离散指标与连续指标对比">
+    <g id="viz-emergence-static"></g>
+    <g id="viz-emergence-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>任务复合步数 k = <input type="range" id="viz-emergence-k" min="1" max="5" step="1" value="3"> <b id="viz-emergence-kval">3</b></label>
+    <label>底层正确率增长快慢 = <input type="range" id="viz-emergence-t" min="1" max="6" step="0.1" value="3"> <b id="viz-emergence-tval">3.0</b></label>
+  </div>
+  <div class="viz-cap">底层 per-token 正确率 p 随规模（横轴，对数）平滑爬升（细线，连续指标）。任务要求 k 步全对，exact match = pᵏ（粗线，离散指标）。k=1 时两线重合；k 越大，pᵏ 把中段 smooth 爬升"掰"成视觉阶跃—— Schaeffer 等人的核心论点。用 0/1 标签测能力，天然会在某个规模附近看到"从零突然跳起"。</div>
+</div>

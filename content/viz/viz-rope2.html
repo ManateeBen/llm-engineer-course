@@ -1,0 +1,21 @@
+<div class="viz" id="viz-rope2">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>RoPE 的相对性与外推失效</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="RoPE 相对性演示与外推失效对比图">
+    <g id="vr2-static"></g>
+    <g id="vr2-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>位置 m = <input type="range" id="vr2-m" min="0" max="2048" step="1" value="100"> <b id="vr2-mval">100</b></label>
+    <label>位置 n = <input type="range" id="vr2-n" min="0" max="2048" step="1" value="112"> <b id="vr2-nval">112</b></label>
+    <label>维度档位 i = <input type="range" id="vr2-band" min="1" max="10" step="1" value="10"> <b id="vr2-bval">10</b></label>
+    <label>方案：
+      <select id="vr2-mode">
+        <option value="none" selected>无修正（原始 base = 10000）</option>
+        <option value="pi">PI 位置插值（角度 ÷ 4）</option>
+        <option value="ntk">NTK-aware（base 放大 4.2 倍）</option>
+        <option value="yarn">YaRN（按档位分频段处理）</option>
+      </select>
+    </label>
+  </div>
+  <div class="viz-cap">左图验证 RoPE 的精确相对性：q 旋转 mθ_i、k 旋转 nθ_i 后，点积只取决于相对角 (n−m)θ_i——同时拖动 m 和 n（保持 n−m 不变），点积读数一动不动。右图才是外推问题的所在：横轴是相对距离 Δ，绿色区是训练时见过的模式（示意 512 以内），红色区是外推区——无修正时模型要在完全没见过的旋转模式上工作。PI 把整条曲线横向压缩 4 倍，让 Δ=2048 处的曲线落回训练区形状（代价是训练区内部分辨率变粗）；NTK-aware 用放大 base 的方式温和压缩低频维度；拖动"维度档位"可以看到 YaRN 的分频段策略——高频档（小 i）基本不动、低频档（大 i）才插值，这正是 3-1 讲的高低频分工。</div>
+</div>

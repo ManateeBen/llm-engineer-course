@@ -1,0 +1,14 @@
+<div class="viz" id="viz-tp">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>Megatron MLP 切分：通信只发生在两处</div>
+  <svg viewBox="0 0 640 420" role="img" aria-label="单步播放 Megatron MLP 的前向切分流程，高亮两次 all-reduce 的时机">
+    <g id="tp-static"></g>
+    <g id="tp-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>执行步<span id="tp-step-val">0 / 5</span>
+      <input type="range" id="tp-step" min="0" max="5" value="0" step="1">
+    </label>
+    <button id="tp-play" type="button">▶ 播放</button>
+  </div>
+  <div class="viz-cap">TP=2 的前向数据流。X 复制到两卡（蓝/绿）→ 各卡列切算 Y_i=X·W1_i → GELU 逐元素（切分封闭，无需通信）→ 行切 W2_i 得到部分和 → <b>all-reduce 求和</b>（红色闪光处，全层唯一一次前向通信）。对照 8-3 §2：能只交一次，是因为 GELU 逐元素；若中间换成 softmax，通信点就会前移。步进滑杆或播放看时序。</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="viz" id="viz-rlhf">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>PPO clipped surrogate：同一批数据里"好动作加仓、坏动作减仓"各有一个上限</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="绘制 PPO 裁剪目标随新旧策略比率变化的曲线，可切换优势符号与裁剪阈值 epsilon">
+    <g id="rl-static"></g>
+    <g id="rl-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>优势 A<span id="rl-a-val">+0.5</span>
+      <input type="range" id="rl-a" min="0" max="1" value="0" step="1">
+    </label>
+    <label>ε<span id="rl-e-val">0.2</span>
+      <input type="range" id="rl-e" min="0" max="2" value="1" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">横轴 r_t=π_θ/π_old，纵轴 surrogate 项。虚线=未裁剪的 r_t·A（线性），实线=裁剪后的 min（在 [1−ε,1+ε] 外变成水平线，梯度为零）。A>0 时右侧截断=好动作加仓上限；A<0 时左侧截断=坏动作减仓下限——这就是 6-0 §4 的"信任盒"：同一批数据内只走小步，跨批次 on-policy 重采。</div>
+</div>

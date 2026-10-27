@@ -1,0 +1,12 @@
+<div class="viz" id="viz-ssm">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>纯注意力 vs 线性 SSM vs 混合：三条曲线与一个状态</div>
+  <svg viewBox="0 0 640 480" role="img" aria-label="线性注意力与 SSM 架构对比及递推状态演示">
+    <g id="vs-static"></g>
+    <g id="vs-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>序列长度 L = <input type="range" id="vs-len" min="3" max="5.4" step="0.05" value="4.7"> <b id="vs-lval">50k</b></label>
+    <button type="button" id="vs-play">▶ 递推写入 8 个 token</button>
+  </div>
+  <div class="viz-cap">三张图对比三种架构随序列长度的表现：注意力（红）每 token 推理成本随 L 线性涨、训练 FLOPs 按平方涨，但检索精度高；线性/SSM（蓝）推理恒定、训练线性，但固定状态装不下全部历史——精确检索塌方；混合（绿）用少数注意力层保住检索、多数线性层压成本。下方演示线性注意力的递推：状态矩阵 S 每步被写入 φ(k)v^T，旧记忆按 0.85 衰减稀释——第 5 步写入的"针"到第 8 步只剩约一半能量；而注意力（右）的 KV cache 是无损回放，针随时可精确取回。这就是 3-7 讲的核心交换：用检索精度换 O(1) 推理。</div>
+</div>

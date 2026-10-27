@@ -1,0 +1,21 @@
+# 构建产物（由 build.py 生成，不进 git）
+llm-course.html
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 构建中间文件
+.eq_check.js
+.venv/
+build/pdf-src.html
+build/pdf-raw.pdf
+build/qa/
+code/**/runs/
+node_modules/
+
+.workbuddy/
+.env
+.env.*
+llm-course.pdf
+_site/

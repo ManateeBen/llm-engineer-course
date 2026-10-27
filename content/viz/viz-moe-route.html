@@ -1,0 +1,15 @@
+<div class="viz" id="viz-moe-route">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>MoE 路由：坍缩、均衡与 token dropping</div>
+  <svg viewBox="0 0 640 460" role="img" aria-label="MoE 路由与负载均衡演示动画">
+    <g id="vmr-static"></g>
+    <g id="vmr-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>top-k = <input type="range" id="vmr-k" min="1" max="4" step="1" value="2"> <b id="vmr-kval">2</b></label>
+    <label>容量因子 cf = <input type="range" id="vmr-cf" min="1" max="2" step="0.05" value="1.25"> <b id="vmr-cval">1.25</b></label>
+    <label>均衡损失 α = <input type="range" id="vmr-alpha" min="0" max="5" step="0.1" value="2"> <b id="vmr-aval">0.020</b></label>
+    <button type="button" id="vmr-play">▶ 推进 batch</button>
+    <button type="button" id="vmr-reset">↺ 重置</button>
+  </div>
+  <div class="viz-cap">每步 batch 有 12 个 token 进入路由层。专家分数 = token 亲和度 + 专家熟练度 w——熟练度随分到的 token 增长（数据多的专家训得更好），这就是坍缩的正反馈：把 α 拖到 0 连播几步，看明星专家如何通吃、其余专家饿死（虚线是各专家的熟练度 w）。α=0.02 是 Switch Transformer 推荐的 10⁻² 量级：辅助损失把 w 拉回均值，负载恢复健康。柱子是路由器的头号选择（容量裁决前）；红色容量线是硬保险——超载的 token 分量被丢弃、走残差旁路，坍缩时丢弃量会暴涨。top-k 越大每个 token 的 MoE 计算越贵，但路由更稳。</div>
+</div>

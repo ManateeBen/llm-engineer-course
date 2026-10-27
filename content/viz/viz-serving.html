@@ -1,0 +1,19 @@
+<div class="viz" id="viz-serving">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>前缀缓存策略与 KV cache 占用的账本</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="调节共享前缀长度、对话轮数与分块大小，对比无缓存、块级前缀缓存、前缀树三种策略的累计 prefill 量，以及三种 KV 表示下的显存占用">
+    <g id="ser-static"></g>
+    <g id="ser-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>共享前缀 P<span id="ser-p-val">3071</span>
+      <input type="range" id="ser-p" min="0" max="3" value="2" step="1">
+    </label>
+    <label>对话轮数 T<span id="ser-t-val">12</span>
+      <input type="range" id="ser-t" min="2" max="24" value="12" step="1">
+    </label>
+    <label>分块大小 B<span id="ser-b-val">16</span>
+      <input type="range" id="ser-b" min="0" max="3" value="1" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">上半：三轮对比累计 prefill token 量。无缓存每轮都重算整个前缀；块级缓存（PagedAttention 的块粒度）每轮要重算未对齐的尾部 P mod B；前缀树（RadixAttention）按 token 精确匹配、零重算。下半：同一会话长度下三种 KV 表示的显存占用（32 层 / GQA 8 头 / 128 维）——位宽与 KV 头数的压缩效果（16 倍、143 倍）远大于前缀缓存那点对齐损失，两条优化路径的量级完全不同。</div>
+</div>

@@ -1,0 +1,7 @@
+<div class="viz" id="viz-rft">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>自训练循环与熵坍缩：数据全来自自己，分布每轮更尖</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="左侧为 STaR 与拒绝采样微调的自训练循环图，右侧为不同外部数据保留比例下的熵衰减曲线">
+    <g id="rf-static"></g>
+  </svg>
+  <div class="viz-cap">左：RFT/STaR 循环——采样 k 个、verifier 留对的、SFT 更新、再采样；收益上界 = 基座 pass@k（采 k 个全错的 prompt 永远学不到）。右：熵坍缩——每轮熵损 ∝ 分布对数概率方差（6-4 §4），外部数据回放比例 α 把方差项压到 (1−α)²。α=0 时分布滚向众数模态（复读安全句）；α 适中才能持续多轮自提升。</div>
+</div>

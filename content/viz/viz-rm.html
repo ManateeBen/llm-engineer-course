@@ -1,0 +1,16 @@
+<div class="viz" id="viz-rm">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>奖励模型过优化：代理奖励一直涨，真实效用先升后崩</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="绘制代理奖励、真实效用随 KL 距离变化的曲线，可调节奖励模型质量参数与集成数量">
+    <g id="rm-static"></g>
+    <g id="rm-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>RM 质量 κ<span id="rm-k-val">1.0</span>
+      <input type="range" id="rm-k" min="0" max="3" value="1" step="1">
+    </label>
+    <label>RM 集成数<span id="rm-n-val">1</span>
+      <input type="range" id="rm-n" min="0" max="2" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">模型：U_gold(d)=g(d)−κ_eff·d，g(d)=α√d（边际收益递减），κ_eff=κ/√n_ens。代理奖励 U_proxy=g(d) 单调上升（RM 自己被优化得很开心）；真实效用在 d*=α²/(4κ_eff²) 处见顶后下降——RM 越差（κ 大）或集成越少，最优停止点越早、峰值越低。Gao et al. 2023 实测：KL 到 ~10 nats 后 gold 指标转平或下降，与这个一阶模型同形。RM 集成 4 个 ⇒ κ 减半 ⇒ d* 变 4 倍。</div>
+</div>

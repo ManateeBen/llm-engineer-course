@@ -1,0 +1,16 @@
+<div class="viz" id="viz-compiler">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>算子融合的收益：流量从 2kn 到 2n</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="调节串接的逐元素算子个数与融合窗口，对比融合前后的 HBM 流量与耗时">
+    <g id="cp-static"></g>
+    <g id="cp-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>算子个数 k<span id="cp-k-val">5</span>
+      <input type="range" id="cp-k" min="1" max="10" value="5" step="1">
+    </label>
+    <label>融合窗口（SRAM 限制）<span id="cp-w-val">5</span>
+      <input type="range" id="cp-w" min="1" max="10" value="5" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">k 个算术强度 O(1) 的逐元素算子串接：不融合流量 2kn、完全融合 2n（8-9 §2 的一阶模型）。但融合窗口受 SRAM 限制——窗口小于 k 时编译器只能分段融合，流量回到 2k'·n（k'=k/窗口向上取整）。把"融合窗口"滑杆调小于 k，亲眼看收益打折：这就是"开了 compile 但收益减半"的数学原因。</div>
+</div>

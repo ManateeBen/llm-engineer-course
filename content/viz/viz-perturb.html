@@ -1,0 +1,13 @@
+<div class="viz" id="viz-perturb">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>参数扰动探针：随机切片 vs 两解连线</div>
+  <svg viewBox="0 0 640 340" role="img" aria-label="损失切片曲线">
+    <g id="viz-pt-static"></g>
+    <g id="viz-pt-dyn"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <button type="button" id="viz-pt-rand">↻ 换一个随机方向</button>
+    <label>扰动 ε = <input type="range" id="viz-pt-eps" min="-1.5" max="1.5" step="0.01" value="0"> <b id="viz-pt-epsval">0.00</b></label>
+    <span id="viz-pt-status"></span>
+  </div>
+  <div class="viz-cap">蓝线：沿随机方向 δ 的 1D 损失切片 loss(θ+εδ)——有起伏，反映地形崎岖。橙线：从解 θ₁ 到独立训练的解 θ₂ 的连线上取点——明显更平缓，即"模式连通性"：两个好解之间存在低损失通道。点"换方向"看随机切片的波动如何变化。</div>
+</div>

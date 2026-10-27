@@ -1,0 +1,16 @@
+<div class="viz" id="viz-dpo">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>DPO 损失：隐式奖励差一个 sigmoid，四个模型坍缩成一次监督训练</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="左图为 PPO 与 DPO 两条管线的模型数量对比，右图为 DPO 损失随隐式奖励差变化的曲线，可调节 beta">
+    <g id="dp-static"></g>
+    <g id="dp-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>β<span id="dp-b-val">0.1</span>
+      <input type="range" id="dp-b" min="0" max="3" value="1" step="1">
+    </label>
+    <label>margin m<span id="dp-m-val">0.0</span>
+      <input type="range" id="dp-m" min="-3" max="3" value="0" step="0.1">
+    </label>
+  </div>
+  <div class="viz-cap">右图：损失 = −logσ(β·m)，m=β 之外的 log-ratio 差。margin>0（chosen 的隐式奖励更高）损失趋 0；margin<0 损失线性增长——分类错误的惩罚没有上界，这就是 DPO 对错标的敏感来源。左图：RLHF 四模型（36Ψ）vs DPO 两模型（16Ψ+2Ψ），省下的是 critic 与 RM 的显存与在线采样。注意 β 同时缩放横轴：β 越小曲线越陡，等于"更敢拉大 chosen/rejected 差距"（也更容易过拟合噪声，6-1 §4）。</div>
+</div>

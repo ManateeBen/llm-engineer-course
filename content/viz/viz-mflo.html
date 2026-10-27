@@ -1,0 +1,19 @@
+<div class="viz" id="viz-mflo">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>训练时长计算器：6ND 除以你能拿到的算力</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="调节参数量、token 数、卡数与 MFU，对比不同 MFU 档位下的训练墙钟时间">
+    <g id="mf-static"></g>
+    <g id="mf-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>参数量 N<span id="mf-n-val">7B</span>
+      <input type="range" id="mf-n" min="0" max="5" value="2" step="1">
+    </label>
+    <label>数据量 D<span id="mf-d-val">1T</span>
+      <input type="range" id="mf-d" min="0" max="4" value="2" step="1">
+    </label>
+    <label>卡数<span id="mf-c-val">512</span>
+      <input type="range" id="mf-c" min="0" max="4" value="2" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">三根柱 = 三档 MFU（30% / 45% / 60%）下的训练墙钟时间（天），峰值算力按 8-0 的代表卡 2.2e15 FLOP/s。公式 t = 6ND /（MFU·P·n）。拖动滑杆：N 或 D 翻倍时间翻倍（线性）；卡数翻倍时间减半；MFU 从 30% 提到 60% 等于白捡一倍集群——这就是 8-0 §2 三个损耗因子值得逐个攻的原因。</div>
+</div>

@@ -1,0 +1,68 @@
+name: validate-and-build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+      - name: 六项质量校验（不通过则阻断）
+        run: python3 build/validate.py
+      - name: 构建单文件课程
+        run: python3 build/build.py
+      - name: 内容解析与模型机制回归
+        run: python3 -m unittest discover -s build -p 'test_*.py'
+      - name: CPU实践验收
+        run: |
+          python3 code/00-micrograd/main.py
+          python3 code/01-nanogpt/main.py
+          python3 code/02-lora/main.py
+          python3 code/07-rag/main.py
+      - name: 浏览器依赖
+        run: |
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium
+      - name: 离线页面回归
+        run: npm run test:browser
+      - name: 准备在线课程
+        run: |
+          mkdir -p _site
+          cp llm-course.html _site/index.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: 发布课程
+        id: deployment
+        uses: actions/deploy-pages@v4

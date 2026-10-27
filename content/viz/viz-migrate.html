@@ -1,0 +1,16 @@
+<div class="viz" id="viz-migrate">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>迁移五步，与误差如何沿层数累积</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="上方为迁移五步流程，下方用滑杆调节每层相对误差与层数，观察输出误差按 (1+ε)^L 累积，并对比单个高误差算子对总量的支配作用">
+    <g id="mig-static"></g>
+    <g id="mig-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>每层相对误差 ε<span id="mig-e-val">1e-4</span>
+      <input type="range" id="mig-e" min="0" max="6" value="2" step="1">
+    </label>
+    <label>层数 L<span id="mig-l-val">80</span>
+      <input type="range" id="mig-l" min="20" max="160" value="80" step="10">
+    </label>
+  </div>
+  <div class="viz-cap">误差按最坏情况串联累积：(1+ε)^L ≈ exp(Lε) ≈ 1+Lε（当 Lε≪1）。所以「每层只有万分之一」在 80 层后会放大到百分量级。更关键的是**分布不均**：把 ε 调到 1e-4、再把 L 调大，然后看第二组对比——一个误差 1e-2 的坏算子，单独贡献就相当于 100 个正常层。因此精度对齐必须逐层定位最大误差源，而不是平均用力。这也是五步法里第三步（逐层对比）比写代码更吃工期的数学原因。</div>
+</div>

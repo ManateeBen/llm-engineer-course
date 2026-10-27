@@ -1,0 +1,14 @@
+<div class="viz" id="viz-bpe">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>BPE 合并过程与词表大小权衡</div>
+  <svg viewBox="0 0 640 470" role="img" aria-label="BPE 逐轮合并动画与词表大小权衡曲线">
+    <g id="vb-static"></g>
+    <g id="vb-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>目标词表大小 = <input type="range" id="vb-vocab" min="11" max="17" step="1" value="14"> <b id="vb-vval">14</b></label>
+    <button type="button" id="vb-play">▶ 逐轮合并</button>
+    <button type="button" id="vb-step">单步</button>
+    <button type="button" id="vb-reset">↺ 重置</button>
+  </div>
+  <div class="viz-cap">上方是语料（数字为词频）：初始时每个词都是单字符 token。每一轮 BPE 统计所有相邻 token 对的频率，合并最高频的一对——高频组合优先生成，这就是 subword 分布的形成机制。点"逐轮合并"看 "l+o→lo"、"lo+w→low" 如何逐级长出完整词。右下图是词表大小的四重权衡：词表越大，序列越短（蓝线降）、但嵌入参数越多（红线升），两条曲线夹出总成本的 U 型谷底——主流模型停在 32k~128k 就是选谷底附近。注意这只是个微型演示语料；真实 BPE 在数十亿 token 上跑几千轮合并。</div>
+</div>

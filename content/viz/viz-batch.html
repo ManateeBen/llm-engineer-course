@@ -1,0 +1,16 @@
+<div class="viz" id="viz-batch">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>Batch × 序列长度 × 梯度累积：三量耦合账本</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="调节 micro-batch 与序列长度，实时显示有效 batch、峰值显存瓦片与吞吐估算">
+    <g id="bat-static"></g>
+    <g id="bat-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>序列长度 L <span id="bat-seq-val">4096</span>
+      <input type="range" id="bat-seq" min="0" max="4" value="3" step="1">
+    </label>
+    <label>micro-batch <span id="bat-mb-val">4</span>
+      <input type="range" id="bat-mb" min="1" max="16" value="4" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">固定：8 卡、目标有效 batch B*=256、临界 batch 128、单卡显存 80GB。序列长度翻倍，注意力段显存约翻 4 倍（平方关系），micro-batch 上限被迫下降；用梯度累积把有效 batch 补回目标，但前向次数增加、吞吐下降。峰值显存超过 80GB 即红色报警——这正是真机训练"调不动 batch"的根因。</div>
+</div>

@@ -1,0 +1,7 @@
+<div class="viz" id="viz-mmeval">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>多模态评测：四阶段课程、幻觉三层归因与报告模板</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="展示多模态四阶段训练课程、幻觉三层归因和评测报告结构">
+    <g id="mmeval-static"></g>
+  </svg>
+  <div class="viz-cap">左：四阶段训练课程的数据账——阶段 2 的 10K~100K 偏好对质量远重于数量（RLHF-V 用 10K 人工校正把幻觉率从 54% 砍到 12%）。中：幻觉三层归因——数据层（caption 噪声 ⇒ 过滤+拒绝采样）、训练目标层（语言先验压过视觉证据 ⇒ RLHF-V 数据飞轮）、解码层（采样多样性 ⇒ 自洽性投票）。右：评测报告三支柱——公开集（只报不优化）+ 私有集六桶（每桶配图像置换对照组：打乱后掉点越少越依赖先验）+ 幻觉专项（POPE 物体级 / CHAIR 虚构率）。多模态 DPO 要监控弃答率：似然位移会让模型变保守。</div>
+</div>

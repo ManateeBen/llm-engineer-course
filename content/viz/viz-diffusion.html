@@ -1,0 +1,13 @@
+<div class="viz" id="viz-diffusion">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>扩散模型：加噪-去噪轨迹、潜空间与 adaLN-Zero</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="展示扩散模型前向加噪和反向去噪的轨迹以及潜空间架构">
+    <g id="diff-static"></g>
+    <g id="diff-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>采样步数<span id="diff-step-val">25</span>
+      <input type="range" id="diff-step" min="0" max="3" value="1" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">左：前向加噪 x_t=√ᾱ_t·x₀+√(1−ᾱ_t)·ε 一步直达；反向去噪由学得的 ε_θ(x_t,t) 逐步走回。MSE 目标的最优解是条件期望 E[ε|x_t]——所以扩散训练比 GAN 稳。右：潜空间扩散——VAE 把 512² 压到 64×64×4（算力降 ~1/48~1/64），VAE 重建损失是质量上限；DiT 用标准 ViT 当主干，adaLN-Zero 把条件生成每层的 scale/shift/gate，零初始化保证初始为恒等（2-0 残差初始化思想的重演）。步数：DDPM 1000 → DDIM 50 → 流匹配 25 → 蒸馏 8。</div>
+</div>

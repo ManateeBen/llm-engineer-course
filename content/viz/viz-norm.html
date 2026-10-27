@@ -1,0 +1,19 @@
+<div class="viz" id="viz-norm">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>BatchNorm vs LayerNorm：统计量沿着哪个方向算</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="批归一化与层归一化的统计方向动画">
+    <g id="viz-norm-static"></g>
+    <g id="viz-norm-grid"></g>
+    <g id="viz-norm-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>模式：
+      <select id="viz-norm-mode">
+        <option value="bn" selected>BatchNorm（跨 batch 按特征归一化）</option>
+        <option value="ln">LayerNorm（按样本跨特征归一化）</option>
+      </select>
+    </label>
+    <label>batch 间分布漂移 = <input type="range" id="viz-norm-drift" min="0" max="1" step="0.01" value="0.5"> <b id="viz-norm-dval">0.50</b></label>
+    <button type="button" id="viz-norm-play">▶ 切换 batch</button>
+  </div>
+  <div class="viz-cap">网格每行是一个样本、每列是一个特征（神经元），颜色表示激活值（红=正大、蓝=负大、灰=0）。BatchNorm 对每一列跨 batch 求均值方差—— batch 组成一变，统计量就抖；LayerNorm 对每一行单独归一化——统计量只依赖该样本自身， batch 怎么变都无所谓。把"漂移"拉大再切换 batch：看 BatchNorm 的高亮列统计带左右摇摆，LayerNorm 岿然不动。</div>
+</div>

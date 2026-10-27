@@ -1,0 +1,15 @@
+<div class="viz" id="viz-collapse">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>模型坍缩：分布如何逐代收窄</div>
+  <svg viewBox="0 0 640 470" role="img" aria-label="token 分布逐代演化柱状图、尾部质量轨迹与坍缩指标读数">
+    <g id="co-static"></g>
+    <g id="co-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>教师温度 τ = <input type="range" id="co-tau" min="0.4" max="1.4" step="0.1" value="1.0"> <b id="co-tval">1.0</b></label>
+    <label>混入真实数据 = <input type="range" id="co-mix" min="0" max="0.5" step="0.05" value="0"> <b id="co-mval">0%</b></label>
+    <button type="button" id="co-next">下一代 →</button>
+    <button type="button" id="co-play">▶ 演化</button>
+    <button type="button" id="co-reset">↺ 重置</button>
+  </div>
+  <div class="viz-cap">初始 token 分布 \(p=(0.45,0.25,0.15,0.08,0.04,0.02,0.008,0.002)\)（橙色 = 尾部三个 token）。每一代：按温度 \(\tau\) 采样 200 个 token → 经验分布 → "拟合端"规则（出现少于 3 次的模式学不动，质量让给头部）→ 按比例混入真实数据。拖动温度看低温采样如何加速坍缩；把混入比例拉到 20% 看分布如何被稳住（Gerstgrasser 2024 的结论）。真实语料以十亿 token 计，衰减以千代计，但机制相同。</div>
+</div>

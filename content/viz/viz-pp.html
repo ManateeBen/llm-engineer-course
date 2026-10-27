@@ -1,0 +1,19 @@
+<div class="viz" id="viz-pp">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>1F1B 时序表：气泡在哪里、显存压着几份</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="调节流水线段数与 micro-batch 数，绘制 1F1B 调度的时序网格，高亮气泡与在飞激活数">
+    <g id="pp-static"></g>
+    <g id="pp-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>流水线段数 p<span id="pp-p-val">4</span>
+      <input type="range" id="pp-p" min="0" max="3" value="1" step="1">
+    </label>
+    <label>micro-batch m<span id="pp-m-val">8</span>
+      <input type="range" id="pp-m" min="0" max="4" value="1" step="1">
+    </label>
+    <label>调度<span id="pp-mode-val">1F1B</span>
+      <input type="range" id="pp-mode" min="0" max="1" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">蓝格 = 前向 F，橙格 = 反向 B，灰格 = 气泡。拖动 m：气泡占比 (p-1)/(m+p-1) 只随 m 缓慢稀释，但 1F1B 的在飞激活封顶 p 份（右上角数字），AFAB（切到"朴素"）则压着全部 m 份——两种调度气泡率相同，显存差 m/p 倍，这就是 8-4 §2 的核心论点。</div>
+</div>

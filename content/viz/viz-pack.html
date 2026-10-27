@@ -1,0 +1,11 @@
+<div class="viz" id="viz-pack">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>序列打包：注意力隔离与 loss mask</div>
+  <svg viewBox="0 0 640 470" role="img" aria-label="四条文档打包进同一序列、朴素注意力与块对角隔离注意力的矩阵对比、loss mask 行">
+    <g id="pk-static"></g>
+    <g id="pk-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <button type="button" id="pk-toggle">👁 高亮跨文档注意力：开</button>
+  </div>
+  <div class="viz-cap">四条长短不一的 SFT 样本打包进同一条训练序列（每格一个 token，深色 = 贡献 loss 的 response，浅色 = 不贡献的 prompt）。左图：只加因果 mask 的朴素打包——后一部文档的 token 能注意到前面所有文档（彩色渗漏区），模型学到跨样本幻觉关联。右图：块对角注意力隔离（LongAlign）——每部文档是一个独立世界，位置 id 按文档重置，RoPE 的相对位置才不会跨文档错乱。底部 loss mask 行：只有 response token 点亮，PAD 与 prompt 全部屏蔽。</div>
+</div>

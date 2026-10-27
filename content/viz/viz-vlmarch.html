@@ -1,0 +1,13 @@
+<div class="viz" id="viz-vlmarch">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>VLM 三种组装范式与 anyres 切图经济学</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="展示桥接式、查询式、注入式三种 VLM 架构和 anyres 切图 token 账">
+    <g id="vlmarch-static"></g>
+    <g id="vlmarch-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>anyres 网格<span id="vlmarch-g-val">2×2</span>
+      <input type="range" id="vlmarch-g" min="0" max="3" value="1" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">上：三种组装范式——桥接式（LLaVA，视觉 token 直接拼接，中开销）、查询式（BLIP-2，Q-Former 压到固定 32~256 token，算力可预测）、注入式（CogVLM，每层 cross-attention，上限最高开销最大）。下：anyres 切图经济学——n×n 网格 + 1 全局缩略图，token 数 =(n²+1)×576；4×4 时单图 9792 token，7B 模型 KV ≈ 4.6 GB/图，多图会话迅速吃掉显存：先算 8-7 的账再定切分。</div>
+</div>

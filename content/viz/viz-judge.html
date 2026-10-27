@@ -1,0 +1,7 @@
+<div class="viz" id="viz-judge">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>LLM-as-judge：三类偏差、校准流水线与四层评测架构</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="展示 LLM judge 的三类偏差与修正方法和四层评测架构">
+    <g id="judge-static"></g>
+  </svg>
+  <div class="viz-cap">judge 与人类一致性 >80%（MT-Bench）但有三类系统性偏差：位置偏差（A/B 交换后判断翻转 10~30%，对策：双序评测取平均）、长度偏好（长答案系统性占优，对策：长度回归调整 + prompt 中立化）、自我偏好（偏爱同族输出，对策：换非同族 judge 并报告同源关系）。校准指标用 Cohen's κ：>0.7 可用于迭代决策，0.4~0.7 只宜粗筛。右侧四层架构：L1 judge 快速筛选 → L2 内部能力集守护 → L3 人工金标准仲裁 → L4 公开榜对外口径——单点指标只是读数，互锁架构才是评测系统。</div>
+</div>

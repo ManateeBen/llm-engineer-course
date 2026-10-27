@@ -1,0 +1,13 @@
+<div class="viz" id="viz-rope">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>RoPE：把绝对位置变成旋转，点积只依赖相对距离</div>
+  <svg viewBox="0 0 640 360" role="img" aria-label="RoPE 旋转位置编码交互演示">
+    <g id="viz-rope-static"></g>
+    <g id="viz-rope-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>token m 的位置 = <input type="range" id="viz-rope-m" min="0" max="16" step="1" value="2"> <b id="viz-rope-mval">2</b></label>
+    <label>token n 的位置 = <input type="range" id="viz-rope-n" min="0" max="16" step="1" value="7"> <b id="viz-rope-nval">7</b></label>
+    <label>每位置旋转角 θ = <input type="range" id="viz-rope-theta" min="2" max="30" step="1" value="12"> <b id="viz-rope-tval">12°</b></label>
+  </div>
+  <div class="viz-cap">RoPE 把位置 m 编码成旋转 mθ：先取内容向量 q（固定为图中较浅的箭头），再旋转 mθ 得到实际参与点积的向量（深箭头）。两个点积 ⟨R(mθ)q, R(nθ)k⟩ = ⟨q, R((n−m)θ)k⟩——只依赖相对位置 n−m，不依赖绝对位置。拖动 m、n 观察：相对距离不变时夹角不变；把"θ"调大，距离每差 1 的相位差更悬殊，近处位置更容易区分。</div>
+</div>

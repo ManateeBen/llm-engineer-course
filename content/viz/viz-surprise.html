@@ -1,0 +1,13 @@
+<div class="viz" id="viz-surprise">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>惊讶程度曲线：\(-\log_2 p\)（拖动滑杆）</div>
+  <svg viewBox="0 0 640 340" role="img" aria-label="负对数概率曲线">
+    <g id="viz-sur-grid"></g>
+    <g id="viz-sur-curves"></g>
+    <g id="viz-sur-cursor"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>预测概率 p = <input type="range" id="viz-sur-p" min="0.001" max="1" step="0.001" value="0.5"> <b id="viz-sur-pval">0.500</b></label>
+    <span id="viz-sur-readout" style="font-family:var(--mono)"></span>
+  </div>
+  <div class="viz-cap">p=1 时零惊讶；p 每减半，账单加 1 比特；p=0.001 时近 10 比特——模型"自信地错"一次，代价顶得上一百次平庸的猜。</div>
+</div>

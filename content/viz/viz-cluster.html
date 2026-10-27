@@ -1,0 +1,13 @@
+<div class="viz" id="viz-cluster">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>碎片与 gang：总空闲够，为什么起不来</div>
+  <svg viewBox="0 0 640 360" role="img" aria-label="对比无 gang 乱占与 gang 成组装箱两种分配下，新任务的碎片化困境">
+    <g id="cl-static"></g>
+    <g id="cl-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>分配策略<span id="cl-mode-val">乱占（无 gang）</span>
+      <input type="range" id="cl-mode" min="0" max="1" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">16 台机 × 8 卡，已被小任务占用（彩色格），新任务要 24 卡（= 3 台整机）。左：乱占——小任务散布全簇，每台机都剩 1~4 张卡，总空闲 32 卡却没有任何一台整机空闲，新任务一卡未得；右：gang+装箱——小任务紧凑装箱留出整机块，新任务立刻起 3 台。切换滑杆对比：碎片杀死的不是卡，是"连续性"。</div>
+</div>

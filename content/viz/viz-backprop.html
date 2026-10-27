@@ -1,0 +1,15 @@
+<div class="viz" id="viz-backprop">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>反向传播：梯度从损失沿计算图回流（可改输入数字）</div>
+  <svg viewBox="0 0 640 320" role="img" aria-label="反向传播计算图">
+    <g id="viz-bp-static"></g>
+    <g id="viz-bp-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>a = <input type="number" id="viz-bp-a" value="2" step="1" style="width:56px"></label>
+    <label>b = <input type="number" id="viz-bp-b" value="3" step="1" style="width:56px"></label>
+    <button type="button" id="viz-bp-play">▶ 播放反向</button>
+    <button type="button" id="viz-bp-reset">重置</button>
+    <span id="viz-bp-status"></span>
+  </div>
+  <div class="viz-cap">前向：c=a·b，d=c+1，L=d²。反向：每站只做「局部坡度 × 上游传来的数」——平方站 2d=14，加法站 ×1，乘法站看另一个输入（a 的责任是 14×b，b 的责任是 14×a）。改 a、b 再放一遍，看责任如何重新分配。</div>
+</div>

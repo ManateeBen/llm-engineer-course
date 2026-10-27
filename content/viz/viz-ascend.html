@@ -1,0 +1,13 @@
+<div class="viz" id="viz-ascend">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>GPU 与 NPU 的架构分野，以及规模化的通信账</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="左侧 GPU 统一 SIMT 核心阵列与 TensorCore，右侧昇腾 AI Core 的 Cube、Vector、Scalar 三条流水线与显式分层存储；下方为 Ring AllReduce 在卡数变化下的带宽项与延迟项占比">
+    <g id="asc-static"></g>
+    <g id="asc-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>卡数 N<span id="asc-n-val">8</span>
+      <input type="range" id="asc-n" min="0" max="4" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">上：GPU 用大量同构核心做 SIMT，矩阵运算交给专用单元加速，cache 对程序员相对透明；昇腾 AI Core 把矩阵/向量/标量拆成三条独立流水线，存储层次（寄存器→L0→L1/UB→L2→HBM）需要显式管理——代价是编程负担，回报是可逼近硬件极限（DeepGEMM-Ascend 报 99.8%）。下：Ring AllReduce 的总时间里，带宽项 2(N−1)/N·D/B 几乎不随卡数增长，延迟项 2(N−1)α 线性增长但系数极小——所以理论上下界很乐观，实际瓶颈常来自跨节点带宽掉档与通信/计算未重叠。</div>
+</div>

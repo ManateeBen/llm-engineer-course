@@ -1,0 +1,13 @@
+<div class="viz" id="viz-prenorm">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>Pre-LN vs Post-LN：梯度走哪条路回家</div>
+  <svg viewBox="0 0 640 448" role="img" aria-label="Pre-LN 与 Post-LN 梯度路径对比动画">
+    <g id="vp-static"></g>
+    <g id="vp-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>层数 L = <input type="range" id="vp-layers" min="2" max="24" step="1" value="12"> <b id="vp-lval">12</b></label>
+    <button type="button" id="vp-play">▶ 从顶层释放梯度</button>
+    <label><input type="checkbox" id="vp-warmup"> Post-LN 启用 warmup（前 2k 步学习率线性升）</label>
+  </div>
+  <div class="viz-cap">左边 Pre-LN（x+F(LN(x))）：残差流是一条完整的高速公路，梯度沿绿色恒等通路直通底层，每层只叠一个扰动项——反向传播的脉冲亮度不减。右边 Post-LN（LN(x+F(x))）：每一层都必须穿过 LayerNorm 这道收费站，梯度被逐层打折——层数一多，底层收到的梯度指数衰减（见下方对数刻度柱状图）。这正是 Xiong et al. 2020 的发现，也是原始 Transformer 必须配 warmup 的原因：训练初期深层梯度方差失控，先用小学习率预热稳住，再放开跑。勾选 warmup 看右图初期的方差尖峰如何被压平。</div>
+</div>

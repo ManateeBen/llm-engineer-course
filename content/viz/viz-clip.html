@@ -1,0 +1,7 @@
+<div class="viz" id="viz-clip">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>CLIP 对比学习：InfoNCE 与三失效三修正</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="展示 CLIP 双塔对比学习结构和三类失效的修正路线">
+    <g id="clip-static"></g>
+  </svg>
+  <div class="viz-cap">CLIP 双塔：N 个图文对，每个图像的负样本是 batch 内其他 N-1 个文本。InfoNCE = 带温度 τ 的 softmax 交叉熵——正是 6-3 Bradley-Terry 的多项推广；τ→0 只惩罚最难负样本，τ 大时近似均匀加权。三个系统性失效各有修正：细粒度/OCR 差 ⇒ SigLIP 的 sigmoid 损失（batch 与负样本数解耦）+ WebLI 数据；密集特征弱 ⇒ DINO 自蒸馏（patch 级语义，分割/检测更强）；低分辨率 ⇒ 提分辨率 + caption 重写。选型三准则：语言分布对齐、分辨率够用、冻结策略匹配数据量。</div>
+</div>

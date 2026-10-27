@@ -1,0 +1,7 @@
+<div class="viz" id="viz-bench">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>Benchmark 三要素：题目分布 × 指标 × 报告</div>
+  <svg viewBox="0 0 640 360" role="img" aria-label="展示 benchmark 设计的三要素结构和坏法反制对照">
+    <g id="bench-static"></g>
+  </svg>
+  <div class="viz-cap">一个 benchmark 是三元组（题目分布 D、指标 M、报告 R）。D 决定"测什么能力"——MMLU 测知识广度、HumanEval 测短程序合成，题目分布换了分数就不可比；M 决定"怎么聚合"——单标量会掩盖失效模式，长度是最大 hack 通道，宏/微平均在不平衡时给出不同排序；R 决定"数字可信度"——没有 bootstrap CI 的均值只是幻觉。四类坏法（泄漏/歧义/捷径/饱和）各有反制，对照组设计（人类基线/trivial 基线）是学术级与玩具级 benchmark 的分水岭。</div>
+</div>

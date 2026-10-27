@@ -1,0 +1,13 @@
+<div class="viz" id="viz-attn-flow">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>一个 token 的前向之旅：Transformer 数据流</div>
+  <svg viewBox="0 0 640 430" role="img" aria-label="Transformer 单层数据流动画">
+    <g id="vaf-static"></g>
+    <g id="vaf-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>模型宽度 d<sub>model</sub> = <input type="range" id="vaf-d" min="256" max="4096" step="256" value="1024"> <b id="vaf-dval">1024</b></label>
+    <label>头数 h = <input type="range" id="vaf-h" min="1" max="16" step="1" value="8"> <b id="vaf-hval">8</b></label>
+    <button type="button" id="vaf-play">▶ 发射 token</button>
+  </div>
+  <div class="viz-cap">绿点是一个 token 的向量（d_model 维）。它依次经过：Q/K/V 三个投影（线性层 W^Q/W^K/W^V）→ 切成 h 个头各自做缩放点积注意力 → 拼回投影 W^O → 与输入相加（残差）→ LayerNorm → FFN 先升维 4 倍再过 GELU 再降回 → 残差与归一化 → 送往下一层或 lm_head。调节宽度与头数，看右侧"形状账本"实时变化——每段计算的参数量与 FLOPs 都写在这里。</div>
+</div>

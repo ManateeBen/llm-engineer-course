@@ -1,0 +1,72 @@
+<div class="viz" id="viz-course-map">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>课程地图：14 个阶段与四层交付物</div>
+  <svg viewBox="0 0 640 640" role="img" aria-label="课程阶段流程图">
+    <defs>
+      <marker id="arr-map" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--text-soft)"></path>
+      </marker>
+    </defs>
+    <!-- 左列：阶段 0~6 -->
+    <g font-size="13" fill="var(--text)">
+      <rect x="30" y="30" width="260" height="40" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="55">阶段 0 · 零起点地基</text>
+      <rect x="30" y="82" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="105">阶段 1 · 数学地基</text>
+      <rect x="30" y="130" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="153">阶段 2 · 深度学习原理</text>
+      <rect x="30" y="178" width="260" height="36" rx="8" fill="var(--accent)" stroke="none"></rect>
+      <text x="46" y="201" fill="#fff" font-weight="700">阶段 3 · 架构与模型设计（你在这里）</text>
+      <rect x="30" y="226" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="249">阶段 4 · 数据工程</text>
+      <rect x="30" y="274" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="297">阶段 5 · 训练方法论</text>
+      <rect x="30" y="322" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="345">阶段 6 · 后训练与对齐</text>
+      <!-- 右列：阶段 7~12 -->
+      <rect x="350" y="82" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="366" y="105">阶段 7 · 评测与实验方法</text>
+      <rect x="350" y="130" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="366" y="153">阶段 8 · 系统与工程</text>
+      <rect x="350" y="178" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="366" y="201">阶段 9 · 多模态</text>
+      <rect x="350" y="226" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="366" y="249">阶段 10 · 应用与 Agent</text>
+      <rect x="350" y="274" width="260" height="36" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="366" y="297">阶段 11 · 国产化适配与生态</text>
+      <rect x="350" y="322" width="260" height="36" rx="8" fill="var(--warn-soft)" stroke="var(--warn)"></rect>
+      <text x="366" y="345">阶段 12 · 整合实践（贯穿）</text>
+      <!-- 连接箭头 -->
+      <g stroke="var(--text-soft)" stroke-width="1.5" fill="none">
+        <line x1="160" y1="70" x2="160" y2="80" marker-end="url(#arr-map)"></line>
+        <line x1="160" y1="118" x2="160" y2="128" marker-end="url(#arr-map)"></line>
+        <line x1="160" y1="166" x2="160" y2="176" marker-end="url(#arr-map)"></line>
+        <line x1="160" y1="214" x2="160" y2="224" marker-end="url(#arr-map)"></line>
+        <line x1="160" y1="262" x2="160" y2="272" marker-end="url(#arr-map)"></line>
+        <line x1="160" y1="310" x2="160" y2="320" marker-end="url(#arr-map)"></line>
+        <path d="M290 340 C330 340 320 100 348 100" marker-end="url(#arr-map)"></path>
+        <line x1="480" y1="118" x2="480" y2="128" marker-end="url(#arr-map)"></line>
+        <line x1="480" y1="166" x2="480" y2="176" marker-end="url(#arr-map)"></line>
+        <line x1="480" y1="214" x2="480" y2="224" marker-end="url(#arr-map)"></line>
+        <line x1="480" y1="262" x2="480" y2="272" marker-end="url(#arr-map)"></line>
+        <line x1="480" y1="310" x2="480" y2="320" marker-end="url(#arr-map)"></line>
+      </g>
+    </g>
+    <!-- 四层交付物 -->
+    <g font-size="13">
+      <text x="30" y="410" font-weight="700" fill="var(--text)">四层交付物（执行顺序 P0 → P1 → P2 → P3）</text>
+      <rect x="30" y="424" width="580" height="34" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"></rect>
+      <text x="46" y="446" fill="var(--text)"><tspan font-weight="700">P0 知识底座</tspan><tspan dx="12">llm-course.html（单文件 · 74 单元 · 你现在读的就是）</tspan></text>
+      <rect x="30" y="466" width="580" height="34" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="488" fill="var(--text)"><tspan font-weight="700">P1 知识可视化</tspan><tspan dx="12">逐单元配图：A 类交互 / B 类 / C 类</tspan></text>
+      <rect x="30" y="508" width="580" height="34" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="530" fill="var(--text)"><tspan font-weight="700">P2 能力层</tspan><tspan dx="12">code/ 十个项目：从零手撕 autograd、Transformer、GPT</tspan></text>
+      <rect x="30" y="550" width="580" height="34" rx="8" fill="var(--bg-soft)" stroke="var(--border)"></rect>
+      <text x="46" y="572" fill="var(--text)"><tspan font-weight="700">P3 证据 + 求职 + 传播</tspan><tspan dx="12">项目链 · 博客 · 面试材料 · 内容资产</tspan></text>
+    </g>
+    <!-- 学习闭环 -->
+    <g font-size="12" fill="var(--text-soft)">
+      <text x="30" y="606">学习闭环：单元（why→body→ex→exit）→ 阶段 gate 大测（≥80% 解锁下一阶段）→ 错题本 → 复习</text>
+    </g>
+  </svg>
+  <div class="viz-cap">顺着箭头走；每个阶段结束时打 gate 大测。整合实践（阶段 12）的单元随求职证据链逐步填充。</div>
+</div>

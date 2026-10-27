@@ -1,0 +1,12 @@
+<div class="viz" id="viz-stability">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>训练不稳定诊断：五类 loss 异常形态与自动回滚</div>
+  <svg viewBox="0 0 640 460" role="img" aria-label="点击五类异常卡片查看其曲线形状与处置，并演示 spike 触发后自动回滚流程">
+    <g id="st-static"></g>
+    <g id="st-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <button id="st-play" class="viz-btn">▶ 播放自动回滚</button>
+    <span id="st-hint" class="viz-hint">点击左侧任一异常卡片查看曲线与处置</span>
+  </div>
+  <div class="viz-cap">五类异常：① 平滑上升（divergence）② 孤立尖峰（spike）③ 平台卡死（plateau）④ 缓慢漂移（drift）⑤ 静默不收敛（silent，数字正常但下游探针为零）。spike 是高频良性异常——正确处置是回滚到尖峰前 checkpoint + 跳过坏 batch，而不是从头重训。点击下方「播放自动回滚」看完整流程。</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="viz" id="viz-kv-heads">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>KV cache 显存账本：MHA / GQA / MQA / MLA</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="KV cache 显存随上下文与 batch 增长对比">
+    <g id="vkh-static"></g>
+    <g id="vkh-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>上下文长度 = <input type="range" id="vkh-ctx" min="3" max="5.1" step="0.05" value="3.91"> <b id="vkh-cval">8k</b></label>
+    <label>batch = <input type="range" id="vkh-batch" min="1" max="64" step="1" value="1"> <b id="vkh-bval">1</b></label>
+    <button type="button" id="vkh-play">▶ 扫描上下文长度</button>
+  </div>
+  <div class="viz-cap">以 7B 模型为例（32 层、BF16、d_head=128）：MHA 每 token 每层要缓存 32 组 K/V，共 0.5 MB——8k 上下文、batch=32 就要 137 GB，单卡直接爆。GQA 让 8 个 Q 头共享 1 组 KV（缓存 1/8），MQA 全员共享 1 组（1/32），MLA 缓存 576 维低秩潜向量（约 1/8，但质量几乎不掉）。红色虚线是 A100 80 GB：拖动 batch 与上下文，看四种方案各自的越界点。下图是头级结构：GQA/MQA 的本质就是把 KV 头的数量从 32 砍到 4 或 1。</div>
+</div>

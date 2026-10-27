@@ -1,0 +1,19 @@
+<div class="viz" id="viz-schedule">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>学习率调度：linear / cosine / WSD 曲线对比与中途退出优势</div>
+  <svg viewBox="0 0 640 440" role="img" aria-label="三条学习率调度曲线，可调 warmup 与 WSD 衰减占比，演示稳定期中途退出的优势">
+    <g id="sch-static"></g>
+    <g id="sch-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>WSD 衰减段占比 <span id="sch-decay-val">10%</span>
+      <input type="range" id="sch-decay" min="2" max="25" value="10" step="1">
+    </label>
+    <label>warmup 占比 <span id="sch-warm-val">1%</span>
+      <input type="range" id="sch-warm" min="0" max="8" value="1" step="1">
+    </label>
+    <label>WSD 退出点（稳定期位置） <span id="sch-exit-val">60%</span>
+      <input type="range" id="sch-exit" min="10" max="95" value="60" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">三条曲线全程归一化到 t∈[0,1]，峰值学习率相同。linear 前段几乎不降、末段才沉；cosine 把最陡下降放在 loss 下降最快的中段；WSD 全程 90%+ 保持峰值、最后一段快速衰减。拖动「WSD 退出点」可看到：稳定期任意位置退出，接一段短 decay 都接近全程最优——这正是 WSD 相比 cosine 的工程红利（随时可停、decay 可复用）。</div>
+</div>

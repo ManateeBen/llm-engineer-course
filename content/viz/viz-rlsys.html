@@ -1,0 +1,16 @@
+<div class="viz" id="viz-rlsys">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>RL 系统的速率失配：生成慢，训练等</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="调节生成与训练的耗时比与部署方式，观察系统利用率与时序甘特图">
+    <g id="rlsys-static"></g>
+    <g id="rlsys-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>耗时比 T_gen/T_train<span id="rlsys-r-val">5</span>
+      <input type="range" id="rlsys-r" min="0" max="4" value="2" step="1">
+    </label>
+    <label>部署方式<span id="rlsys-mode-val">分群 1:1</span>
+      <input type="range" id="rlsys-mode" min="0" max="2" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">甘特条：绿 = 生成 rollout，蓝 = 训练，灰 = 空转。分群部署下卡按固定比例分开，当生成耗时远大于训练时训练侧大片空转（利用率公式 U=(n_t·T_train+n_g·T_gen)/((n_t+n_g)·max)）；调到"按耗时比配卡"后两段咬合、利用率拉满。colocated 则全体一起等生成（8-6 §2 的分时复用，无空转卡但无并行）。这就是 6-6 §4 的"按耗时比配卡"。</div>
+</div>

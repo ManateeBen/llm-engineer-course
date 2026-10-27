@@ -1,0 +1,11 @@
+<div class="viz" id="viz-minhash">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>MinHash 签名与 LSH 分带：候选对是怎么产生的</div>
+  <svg viewBox="0 0 640 470" role="img" aria-label="四篇文档的 shingle、MinHash 签名分带比对与候选概率曲线">
+    <g id="mh-static"></g>
+    <g id="mh-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>每带行数 r = <input type="range" id="mh-r" min="2" max="4" step="1" value="3"> <b id="mh-rval">3</b>（共 12 个 MinHash → <b id="mh-nbands">4</b> 个带）</label>
+  </div>
+  <div class="viz-cap">左上：四篇文档的词级 2-gram（shingle）与真实 Jaccard。右上：A 与 B 的 12 维 MinHash 签名按带分组比对——同色格为取值相同的哈希位，只要有一个带整带相同（✓ 命中）即成为候选对。右下：候选概率曲线 \(P(s)=1-(1-s^r)^{b/r}\)，虚线为阈值 \((r/b)^{1/r}\)。拖动 r 看阈值与候选概率如何变化：r 越大越严（只抓高相似），带数越多越松。这是微型演示语料；真实管线用数百个哈希、在十亿级文档上跑。</div>
+</div>

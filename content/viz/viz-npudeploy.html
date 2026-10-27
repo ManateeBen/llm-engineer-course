@@ -1,0 +1,16 @@
+<div class="viz" id="viz-npudeploy">
+  <div class="viz-title"><span class="viz-badge c">C 类</span>国产推理服务栈：PD 分离与 KV 容量账</div>
+  <svg viewBox="0 0 640 400" role="img" aria-label="调节 KV 位宽与并发数，观察 KV cache 占用相对显存预算的变化，并展示预填充组与解码组的分离架构">
+    <g id="nd-static"></g>
+    <g id="nd-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>KV 位宽<span id="nd-w-val">FP16</span>
+      <input type="range" id="nd-w" min="0" max="1" value="0" step="1">
+    </label>
+    <label>并发 b<span id="nd-b-val">8</span>
+      <input type="range" id="nd-b" min="0" max="3" value="0" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">上：PD 分离架构——预填充组（算力受限，吃 P_max）与解码组（带宽受限，吃 B_max）各自独立扩缩，KV 经传输通道搬家（8-7 的调度语义，厂商无关）。下：KV 账本——每条 8k 上下文 40 KB/token 级，切换 FP16/INT8 与并发数看占用逼近权重线的过程：KV 装不下时再高的吞吐优化都无意义（可行性先行，11-4 练习 4）。</div>
+</div>

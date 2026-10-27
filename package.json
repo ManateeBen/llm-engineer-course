@@ -1,0 +1,6 @@
+{
+  "name": "llm-course-checks",
+  "private": true,
+  "scripts": { "test:browser": "node build/test_browser.cjs" },
+  "devDependencies": { "playwright": "1.56.0" }
+}

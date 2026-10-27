@@ -1,0 +1,16 @@
+<div class="viz" id="viz-comm">
+  <div class="viz-title"><span class="viz-badge b">B 类</span>环形 all-reduce：N 张卡转两圈，带宽项几乎不涨</div>
+  <svg viewBox="0 0 640 420" role="img" aria-label="调节卡数与消息大小，对比朴素、环形、树形三种 all-reduce 的通信时间，并展示环形分块旋转示意">
+    <g id="cm-static"></g>
+    <g id="cm-anim"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>卡数 N<span id="cm-n-val">8</span>
+      <input type="range" id="cm-n" min="0" max="5" value="2" step="1">
+    </label>
+    <label>消息 S（GB）<span id="cm-s-val">4</span>
+      <input type="range" id="cm-s" min="0" max="4" value="1" step="1">
+    </label>
+  </div>
+  <div class="viz-cap">上：环上每卡把 S/N 的块传给下一卡，RS 与 AG 各转一圈（2(N-1) 步）；下：三种算法的带宽时间对比（带宽 400 GB/s、α=10 µs）。加大 N：朴素方案线性恶化、环几乎不动（2(N-1)/N→2）、树形的延迟项 O(logN) 在小消息时反超——8-5 §2~§4 的三条结论。</div>
+</div>

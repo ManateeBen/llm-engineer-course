@@ -1,0 +1,13 @@
+<div class="viz" id="viz-attn">
+  <div class="viz-title"><span class="viz-badge a">A 类</span>注意力分数表与 softmax：拖动"缩放温度"，看饱和与摊平</div>
+  <svg viewBox="0 0 640 380" role="img" aria-label="注意力热力图">
+    <g id="viz-attn-table"></g>
+    <g id="viz-attn-overlay"></g>
+  </svg>
+  <div class="viz-ctrl">
+    <label>缩放温度 t（除以 (√d)^t）= <input type="range" id="viz-attn-t" min="0" max="2" step="0.1" value="1"> <b id="viz-attn-tval">1.0</b></label>
+    <button type="button" id="viz-attn-play">▶ 逐行播放 softmax</button>
+    <span id="viz-attn-status"></span>
+  </div>
+  <div class="viz-cap">与正文同一组三词、d=4 的分数。t=0 不缩放，首行最大权重约 0.867；t=1 除以 √4，约 0.665；继续增大 t 会让分布更平。这里演示双向信息聚合，不代表因果 GPT 或指代判定。</div>
+</div>
